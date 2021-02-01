@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Messenger from "./Messenger";
 
 function App() {
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    setUsername(prompt("Enter your Name"));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app__header">
+        <div className="app__container">
+          <img
+            className="app__logo"
+            src="https://lh3.googleusercontent.com/rkBi-WHAI-dzkAIYjGBSMUToUoi6SWKoy9Fu7QybFb6KVOJweb51NNzokTtjod__MzA=s180"
+            alt=""
+          />
+        </div>
+        <p>Welcome {username}</p>
+      </div>
+      <Messenger username={username} />
     </div>
   );
 }
